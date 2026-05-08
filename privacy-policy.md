@@ -1,38 +1,82 @@
-Privacy Policy for Salesforce Field Reference Finder
+# Privacy Policy
 
-Effective Date: 08/05/2026
+Salesforce Field Reference Finder is a browser extension with one narrow purpose: to help users find where a selected Salesforce field is referenced in metadata for the currently open Salesforce org.
 
-Salesforce Field Reference Finder is a Chrome extension with one purpose: to help users find where a selected Salesforce field is referenced in metadata for the currently open Salesforce org.
+The extension communicates directly between the user's web browser and Salesforce servers. No data is sent to the developer or to any other third party.
 
-Data Access
+## Salesforce API Communication
 
-The extension accesses the active Salesforce tab URL only when the user clicks the extension icon from a Salesforce page. This is used to identify the currently selected Salesforce org.
+The extension communicates with Salesforce using official Salesforce web service APIs on behalf of the currently logged-in user.
 
-The extension reads the Salesforce session cookie for the selected Salesforce org only to call Salesforce REST and Tooling APIs from the user's browser. These API calls are used to load Salesforce objects, load fields, and find metadata references to the selected Salesforce field.
+This means the extension can access only the Salesforce data and metadata that the logged-in user has already been granted permission to access in Salesforce.
 
-Data Collection and Storage
+Salesforce API calls from the extension reuse the Salesforce session used by the browser to access Salesforce. To use this session, the extension requires permission to read Salesforce browser cookie information for Salesforce domains.
+
+The Salesforce session cookie is used only locally in the user's browser to call Salesforce REST and Tooling APIs. The session cookie is not transmitted to the developer, stored on external servers, sold, or shared with third parties.
+
+## Data Access
+
+The extension may access the following information only for its field-reference lookup purpose:
+
+- The active Salesforce tab URL, to identify the currently selected Salesforce org.
+- Salesforce session cookie information for Salesforce domains, to authenticate Salesforce API requests.
+- Salesforce metadata needed to find field references, such as:
+  - Salesforce object names
+  - Salesforce field names
+  - Apex class and trigger names
+  - Flow names
+  - Layout names
+  - Validation Rule names
+  - Lightning Page / FlexiPage names
+  - Field-reference search results
+
+The extension does not access or process non-Salesforce websites.
+
+## Data Collection and Sharing
 
 The extension does not collect, sell, transfer, or share user data with third parties.
 
 The extension does not transmit Salesforce session cookies, Salesforce metadata, browsing history, or search results to any external server.
 
-All processing occurs locally in the user's browser and through direct calls from the browser to the user's Salesforce org.
+All processing occurs locally in the user's browser and through direct API calls from the browser to the user's Salesforce org.
 
-The extension may temporarily display debug logs and search results in the extension page. These remain in the user's browser session and are not sent to the developer or any third party.
+## Local Storage Policy
 
-Permissions
+The extension may save limited information in the browser's local storage to avoid redundant queries and remember extension preferences.
 
-The extension uses Chrome permissions only for its single purpose:
+Local storage may include:
 
-- activeTab: to identify the Salesforce tab from which the user launches the extension.
-- cookies: to read the Salesforce session cookie for the selected Salesforce org so Salesforce API calls can be made using the user's existing Salesforce session.
-- storage, if enabled: to temporarily remember the selected Salesforce org URL and source tab while opening the extension page.
-- Salesforce host permissions: to call Salesforce REST and Tooling APIs for field-reference lookup.
+- Selected Salesforce org URL
+- Source Salesforce tab identifier
+- Extension preferences
+- Query or search history, if this feature is enabled
+- Saved queries, if this feature is enabled
+- Environment type, such as Production or Sandbox
+- Temporary debug logs or search results shown in the extension page
 
-Remote Code
+The extension does not use local storage to store Salesforce SObject record data such as Account, Contact, Opportunity, Case, or similar business records.
 
-The extension does not use remote code. All JavaScript, HTML, CSS, and assets are packaged inside the extension.
+Local storage data remains in the user's browser and is not sent to the developer or any third party.
 
-Contact
+Users may clear local storage data by clearing browser site data, clearing extension data, or removing the extension.
 
-For privacy questions, contact: petluriraju07@gmail.com
+## Permissions
+
+The extension uses Chrome permissions only for its single purpose.
+
+- **activeTab:** Used to identify the Salesforce tab from which the user launches the extension.
+- **cookies:** Used to read the Salesforce session cookie for the selected Salesforce org so Salesforce API calls can be made using the user's existing Salesforce session.
+- **storage, if enabled:** Used to temporarily remember the selected Salesforce org URL, source tab, preferences, and related extension state.
+- **Salesforce host permissions:** Used to call Salesforce REST and Tooling APIs for field-reference lookup.
+
+## Remote Code
+
+The extension does not use remote code.
+
+All JavaScript, HTML, CSS, and assets are packaged inside the extension. The extension does not load external scripts, execute downloaded code, or use remote-hosted JavaScript libraries.
+
+## User Control
+
+Users can validate the behavior of the extension by inspecting the source code and monitoring network traffic in the browser developer tools.
+
+Users may remove stored extension data by clearing browser storage or uninstalling the extension.
